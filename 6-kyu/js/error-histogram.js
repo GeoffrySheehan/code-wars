@@ -17,13 +17,14 @@
 function hist(s) {
   const errorCodes = 'uwxz';
   
-  const errors = s.split('')
-    .filter(c => 'uwxz'.includes(c))
-    .reduce((obj, c) => {
-      (c in obj) ? obj[c]++ : obj[c] = 1;
+  const errors = s.split('')                // Break the string into characters
+    .filter(c => 'uwxz'.includes(c))        // Filter out the non-error characters
+    .reduce((obj, c) => {                   // Count the errors and store them
+      (c in obj) ? obj[c]++ : obj[c] = 1;  
       return obj;
-    }, {})
+    }, {});
   
+  // Create the histogram
   let histogram = [];
   for (const c of errorCodes) {
     if (c in errors) {
@@ -32,6 +33,5 @@ function hist(s) {
     }
   }
   
-  return histogram.join('\r');
-  
+  return histogram.join('\r'); 
 }
