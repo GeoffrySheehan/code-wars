@@ -1,0 +1,43 @@
+Please research the following methods:
+map - Creates a new array from the existing array by calling a provided function on every element.
+reduce - Executes a provided reducer function on every element of the array resulting in a single output.
+filter - Creates a new array with all the elements that pass the test implemented by a provided function.
+forEach - Executes a provided function once for each element.
+sort - Sorts the elements of an array in place. Defaults to ascending order after converting elements to strings.
+slice - Returns a shallow copy of a portion of the array into a new array from start to end, where start and end are array indexes.
+pop - Removes the last element of the array and returns the removed element.
+shift - Removes the first element of the array and returns the removed element.
+push - Adds one or more elements to the end of an array;
+unshift - Adds one or more elements to the start of an array
+includes - Determines whether an array includes a certain value.
+indexOf - Returns the first index of an element within an array, or -1 if none are found
+every - Returns true if every element in the array satisfies the passed testing function.
+
+Give a short description of what the method does, how it works, it's time complexity (if appropriate), and give three examples of it in action!
+
+Questions to practice:
+
+One:
+Given a non-empty array of integers, return the result of multiplying the values together in order. Example:
+[1, 2, 3, 4] => 1 * 2 * 3 * 4 = 24
+
+const product = arr.reduce((prod, x) => prod * x);
+
+
+Two:
+You will be given an array of all the family members' ages, in any order.
+The ages will be given in whole numbers, so a baby of 5 months, will have
+an ascribed 'age' of 0. Return a new array with
+[youngest age, oldest age, difference between the youngest and oldest age].
+
+arr.sort((a, b) => a - b)
+const data = [arr.shift(), arr.pop()];
+data.push(data[1] - data[0])
+
+Three:
+Sum all the numbers of the array except the highest and the lowest element (the value, not the index!).
+Example:
+[ 6, 2, 1, 8, 10 ] => 16
+[ 1, 1, 11, 2, 3 ] => 6
+
+let sum = arr.sort((a,b) => a - b).slice(1, -1).reduce((acc, x) => acc + x);
